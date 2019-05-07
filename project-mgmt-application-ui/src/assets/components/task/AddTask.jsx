@@ -16,7 +16,7 @@ class AddTask extends Component {
         const nextDate = format(addDays(new Date(), 1), 'YYYY-MM-DD');
         const labels = {
             'addTask': 'Add Task',
-            'editTask': 'Edit Task'
+            'editTask': 'Update Task'
         };
         this.state = {
             taskList: props.taskList || [],
@@ -128,8 +128,8 @@ class AddTask extends Component {
                         </Col>
                     </FormGroup>
                     <FormGroup row>
-                        <Label for="priority" sm={2}>Priority:</Label>
-                        <Col sm={10}>
+                        <Label for="priority" sm={3}>Priority:</Label>
+                        <Col sm={9}>
 
                             <Input type="range" min="1" max="30" invalid={this.state.priorityInvalid}
                                 value={this.state.priority} class="slider"
@@ -166,8 +166,8 @@ class AddTask extends Component {
                         </Col>
                     </FormGroup>
                     <FormGroup row>
-                        <Label for="startDate" sm={2}>Start Date:</Label>
-                        <Col sm={4}>
+                        <Label for="startDate" sm={3}>Start Date:</Label>
+                        <Col sm={3}>
                             <Input
                                 type="date"
                                 name="startDate"
@@ -181,7 +181,7 @@ class AddTask extends Component {
                             />
                         </Col>
                         <Label for="endDate" sm={2}>End Date:</Label>
-                        <Col sm={4}>
+                        <Col sm={3}>
                             <Input
                                 type="date"
                                 name="endData"
@@ -345,6 +345,8 @@ class AddTask extends Component {
         }
 
         const task = {
+            id : this.props.currentTask.id,
+            parentId : this.props.currentTask.parentId,
             projectId: this.state.projectId,
             task: this.state.taskName,
             priority: this.state.priority,

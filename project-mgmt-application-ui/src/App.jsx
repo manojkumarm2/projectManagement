@@ -140,7 +140,7 @@ class App extends Component {
               <Row>
                 <Col sm="12">
                   <AddTask userList={this.state.userList} projectsList={this.state.projectsList} currentTask={this.state.currentTask} parentTaskList={this.state.parentTaskList}
-                    addOrEditTask={(userAction, task) => this.addOrEditTask(userAction, task)} />
+                    addOrEditTask={(userAction, task) => this.addOrEditTask(userAction, task)} userAction={this.state.userAction}/>
                 </Col>
               </Row>
             </TabPane>
@@ -186,7 +186,8 @@ class App extends Component {
     if(userAction === 'editTask'){
       this.setState({
         currentTask: task,
-        activeTab: '2'
+        activeTab: '2',
+        userAction: userAction
       });
     } else {
       var dis = this;
